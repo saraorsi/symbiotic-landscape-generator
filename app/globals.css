@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 0.1em;
+  word-spacing: 0.4em;
+  font-family: sans-serif;
+}
+
+body {
+  color: #00ff00;
+  text-align: justify;
+  text-align-last: center;
+}
+
+.flicker {
+  animation: flicker 2s infinite;
+}
+@keyframes flicker {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: bounce 15s alternate infinite, fadeIn 10s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.bounce-frame {
+  animation: bounce 15s alternate infinite;
+}
+@keyframes bounce {
+  0% {
+    min-width: 1000%;
+    height: 120vh;
+    transform: translateY(-20px) translateX(0px);
+  }
+  100% {
+    min-width: 1200%;
+    height: 125vh;
+    transform: translateY(-20px) translateX(-100px);
+  }
+}
