@@ -41,6 +41,6 @@ export async function generateLandscape(speculation: string) {
     const image_url = data.data[0].url;
     return image_url as string;
   } catch (error) {
-    console.error(error);
+    throw error;
   }
 }
