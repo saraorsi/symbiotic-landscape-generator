@@ -10,7 +10,6 @@ export async function POST(req: NextRequest) {
     const response = await generateSpeculation(input);
     return new NextResponse(response);
   } catch (error) {
-    console.log(error);
-    return new NextResponse("error");
+    throw error;
   }
 }
