@@ -31,11 +31,11 @@ export default function Home() {
             Symbiotic Landscape Generator
           </div>
           <div className="text-lg mb-8">{input}</div>
-          {/* <div className="text-sm mb-4">
+          <div className="text-sm mb-4">
             [excerpt from residency synopsis used as initial input]
             <br />
             CADA
-          </div> */}
+          </div>
           <div className="text-sm mb-12">
             [sound]
             <br />
