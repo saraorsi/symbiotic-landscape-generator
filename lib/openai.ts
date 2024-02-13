@@ -13,11 +13,12 @@ export async function generateSpeculation(input: string) {
       messages: [
         {
           role: "system",
-          content: "I am an AI that speculates with a philosophical tone",
+          content:
+            "I am an AI engaging in speculative narrative with a philosophical undertone.",
         },
         {
           role: "user",
-          content: `Create a sentence of no more than 20 words that forms a speculative narrative that continues: ##${input}##".`,
+          content: `Craft a speculative narrative sentence, limit to 20 words, that follows: ##${input}##".`,
         },
       ],
     });
@@ -38,7 +39,6 @@ export async function generateLandscape(speculation: string) {
         n: 1,
         size: "256x256",
       });
-
       const data = await response.json();
       const image_url = data.data[0].url;
       return image_url as string;
