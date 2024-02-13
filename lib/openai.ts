@@ -17,7 +17,7 @@ export async function generateSpeculation(input: string) {
         },
         {
           role: "user",
-          content: `Craft a maximum 20-word sentene forming a speculative continuation of: ##${input}##".`,
+          content: `Create a sentence of no more than 20 words that forms a speculative narrative that continues: ##${input}##".`,
         },
       ],
     });
@@ -30,17 +30,23 @@ export async function generateSpeculation(input: string) {
 }
 
 export async function generateLandscape(speculation: string) {
-  try {
-    const response = await openai.createImage({
-      prompt: `Create an image that, without any text visible, visually represents ##${speculation}##.`,
-      n: 1,
-      size: "256x256",
-    });
+  let retries = 3;
+  while (retries > 0) {
+    try {
+      const response = await openai.createImage({
+        prompt: `Create an image that, without any text visible, visually represents ##${speculation}##.`,
+        n: 1,
+        size: "256x256",
+      });
 
-    const data = await response.json();
-    const image_url = data.data[0].url;
-    return image_url as string;
-  } catch (error) {
-    throw error;
+      const data = await response.json();
+      const image_url = data.data[0].url;
+      return image_url as string;
+    } catch (error) {
+      retries--;
+      if (retries === 0) {
+        throw error;
+      }
+    }
   }
 }
