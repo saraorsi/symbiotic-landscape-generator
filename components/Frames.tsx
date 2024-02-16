@@ -105,7 +105,7 @@ export default function Frame({ initialInput }: FrameProps) {
             </figure>
           </div>
         ))}
-      <div className="fixed bottom-10 text-center px-64 text-xl drop-shadow-[0_0_1px_rgba(0,0,0,0.5)]">
+      <div className="absolute m-auto left-[50%] translate-x-[-50%] w-[1000px] bottom-10 text-center text-xl leading-[1.35] drop-shadow-[0_0_1px_rgba(0,0,0,0.5)]">
         {reading && input}
       </div>
     </div>
